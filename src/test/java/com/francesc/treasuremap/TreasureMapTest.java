@@ -7,9 +7,11 @@ import org.junit.Test;
 
 public class TreasureMapTest {
 
-	private int[][] mapTest = { { 'X', '-', '-' }, { '-', '-', '-' },
-			{ '-', '-', 'X' } };
-	private int[][] mapResult = { { 1, 1, 0 }, { 1, 2, 1 }, { 0, 1, 1 } };
+	private int[][] mapTest = { { 'X', '-', '-', '-', '-' },
+			{ '-', '-', 'X', '-', '-' }, { '-', '-', '-', '-', '-' },
+			{ '-', '-', '-', '-', '-' } };
+	private int[][] mapResult = { { 1, 2, 1, 1, 0 }, { 1, 2, 1, 1, 0 },
+			{ 0, 1, 1, 1, 0 }, { 0, 0, 0, 0, 0 } };
 
 	/**
 	 * Test if TreasureMap solves mapTest as mapResult expected

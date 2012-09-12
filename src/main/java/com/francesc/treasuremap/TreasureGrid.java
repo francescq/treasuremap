@@ -40,21 +40,16 @@ public abstract class TreasureGrid {
 	 *            treasure map
 	 */
 	protected TreasureGrid(int[][] map) {
-		int y = 0;
 
 		if (map == null) {
-			throw new NullPointerException(TreasureGrid.class
-					+ " TreasureGrid(int [][] map): map argument must not be null");
+			throw new NullPointerException(
+					TreasureGrid.class
+							+ " TreasureGrid(int [][] map): map argument must not be null");
 		}
 
 		this.map = map;
 
-		// if map size is [0,0]
-		if (map.length > 0) {
-			y = map[0].length - 1;
-		}
-
-		result = new int[map.length][map[y].length];
+		result = new int[map.length][map[0].length];
 
 	}
 

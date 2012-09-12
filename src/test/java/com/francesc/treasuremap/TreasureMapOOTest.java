@@ -5,8 +5,8 @@ import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
-import com.francesc.treasuremap.oo.TreasureGrid;
 import com.francesc.treasuremap.oo.Point;
+import com.francesc.treasuremap.oo.TreasureGrid;
 import com.francesc.treasuremap.oo.TreasureMapIterative;
 import com.francesc.treasuremap.oo.TreasureMapRecursive;
 
@@ -22,9 +22,11 @@ import com.francesc.treasuremap.oo.TreasureMapRecursive;
  */
 public class TreasureMapOOTest {
 
-	private int[][] mapTest = { { 'X', '-', '-' }, { '-', '-', '-' },
-			{ '-', '-', 'X' } };
-	private int[][] mapResult = { { 1, 1, 0 }, { 1, 2, 1 }, { 0, 1, 1 } };
+	private int[][] mapTest = { { 'X', '-', '-', '-', '-' },
+			{ '-', '-', 'X', '-', '-' }, { '-', '-', '-', '-', '-' },
+			{ '-', '-', '-', '-', '-' } };
+	private int[][] mapResult = { { 1, 2, 1, 1, 0 }, { 1, 2, 1, 1, 0 },
+			{ 0, 1, 1, 1, 0 }, { 0, 0, 0, 0, 0 } };
 
 	/**
 	 * Test if TreasureMap solves mapTest as mapResult expected
