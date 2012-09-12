@@ -6,7 +6,7 @@ public class TreasureMapApp {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		Map treasureMap = null;
+		TreasureGrid treasureMap = null;
 		// Stress with iterative approach
 		treasureMap = new TreasureMapIterative(1000, 1000, 0.9);
 		treasureMap.populate();

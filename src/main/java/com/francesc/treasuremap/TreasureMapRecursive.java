@@ -1,6 +1,6 @@
 package com.francesc.treasuremap;
 
-public class TreasureMapRecursive extends Map {
+public class TreasureMapRecursive extends TreasureGrid {
 
 	/**
 	 * Threshold to help to autogenerate map.

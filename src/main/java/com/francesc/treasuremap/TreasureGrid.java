@@ -7,7 +7,7 @@ package com.francesc.treasuremap;
  *         Abstract class implementing the treasure map. It forces to subclasses
  *         to choose the map generation population and map solve mode
  */
-public abstract class Map {
+public abstract class TreasureGrid {
 
 	/**
 	 * Treasure map itself. It's an int matrix
@@ -27,7 +27,7 @@ public abstract class Map {
 	 * @param y
 	 *            height
 	 */
-	protected Map(int x, int y) {
+	protected TreasureGrid(int x, int y) {
 		map = new int[x][y];
 		result = new int[x][y];
 	}
@@ -39,12 +39,12 @@ public abstract class Map {
 	 * @param map
 	 *            treasure map
 	 */
-	protected Map(int[][] map) {
+	protected TreasureGrid(int[][] map) {
 		int y = 0;
 
 		if (map == null) {
-			throw new NullPointerException(Map.class
-					+ " Map(int [][] map): map argument must not be null");
+			throw new NullPointerException(TreasureGrid.class
+					+ " TreasureGrid(int [][] map): map argument must not be null");
 		}
 
 		this.map = map;
@@ -58,7 +58,7 @@ public abstract class Map {
 
 	}
 
-	protected Map() {
+	protected TreasureGrid() {
 
 	}
 

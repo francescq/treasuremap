@@ -7,7 +7,7 @@ public class TreasureMapApp {
 	 */
 	public static void main(String[] args) {
 		// Stress with iterative approach
-		Map treasureMap = new TreasureMapIterative(1000, 1000, 0.9);
+		TreasureGrid treasureMap = new TreasureMapIterative(1000, 1000, 0.9);
 		treasureMap.populate();
 		treasureMap.solve();
 		// System.out.println(treasureMap);

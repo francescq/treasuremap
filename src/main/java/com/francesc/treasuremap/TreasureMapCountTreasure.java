@@ -1,6 +1,6 @@
 package com.francesc.treasuremap;
 
-public class TreasureMapCountTreasure extends Map {
+public class TreasureMapCountTreasure extends TreasureGrid {
 
 	/**
 	 * Threshold to help to autogenerate map.

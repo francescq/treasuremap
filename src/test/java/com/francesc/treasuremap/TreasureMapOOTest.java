@@ -5,7 +5,7 @@ import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
-import com.francesc.treasuremap.oo.Map;
+import com.francesc.treasuremap.oo.TreasureGrid;
 import com.francesc.treasuremap.oo.Point;
 import com.francesc.treasuremap.oo.TreasureMapIterative;
 import com.francesc.treasuremap.oo.TreasureMapRecursive;
@@ -107,7 +107,7 @@ public class TreasureMapOOTest {
 	 */
 	@Test
 	public void testTreasureMapPerformance() {
-		Map treasureMap = null;
+		TreasureGrid treasureMap = null;
 		// Stress with iterative approach
 		treasureMap = new TreasureMapIterative(1000, 1000, 0.9);
 		treasureMap.populate();
@@ -126,7 +126,7 @@ public class TreasureMapOOTest {
 	@Test
 	public void testTreasureMapIInGrid() {
 
-		Map t = new TreasureMapIterative(mapTest);
+		TreasureGrid t = new TreasureMapIterative(mapTest);
 		for (int i = 0; i < mapTest.length; i++) {
 			for (int j = 0; j < mapTest[i].length; j++) {
 				assertTrue(t.isInGrid(i, j));
