@@ -106,7 +106,7 @@ public abstract class Map {
 	 *            height position
 	 * @return boolean is the point inside the map grid?
 	 */
-	protected boolean isInGrid(int i, int j) {
+	public boolean isInGrid(int i, int j) {
 		boolean isInGrid = true;
 
 		if (i < 0 || j < 0 || i >= getMap().size()

@@ -1,5 +1,6 @@
 package com.francesc.treasuremap;
 
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
@@ -118,4 +119,27 @@ public class TreasureMapOOTest {
 		treasureMap.populate();
 		treasureMap.solve();
 	}
+
+	/**
+	 * Test to check if point is in map grid
+	 */
+	@Test
+	public void testTreasureMapIInGrid() {
+
+		Map t = new TreasureMapIterative(mapTest);
+		for (int i = 0; i < mapTest.length; i++) {
+			for (int j = 0; j < mapTest[i].length; j++) {
+				assertTrue(t.isInGrid(i, j));
+			}
+		}
+
+		assertFalse(t.isInGrid(-1, 1));
+		assertFalse(t.isInGrid(-1, -1));
+		assertFalse(t.isInGrid(1, -1));
+		assertFalse(t.isInGrid(mapTest.length, mapTest[0].length));
+		assertFalse(t.isInGrid(mapTest.length, mapTest[0].length - 1));
+		assertFalse(t.isInGrid(mapTest.length - 1, mapTest[0].length));
+
+	}
+
 }
