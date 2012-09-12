@@ -52,8 +52,21 @@ public class TreasureMapCountTreasure extends Map {
 	 * redirects to solvePointIterative
 	 */
 	@Override
-	public int solvePoint(int x, int y) {
-		return solvePointAddToNeighbour(x, y);
+	public void solve() {
+		long time = System.currentTimeMillis();
+
+		for (int i = 0; i < getMap().length; i++) {
+
+			for (int j = 0; j < getMap()[i].length; j++) {
+
+				solvePointAddToNeighbour(i, j);
+
+			}
+
+		}
+
+		System.out.println("Solved in: " + (System.currentTimeMillis() - time)
+				+ " milis");
 	}
 
 	/**
@@ -89,9 +102,7 @@ public class TreasureMapCountTreasure extends Map {
 	 *            height to evaluate
 	 * @return int how many treasures are nearby?
 	 */
-	private int solvePointAddToNeighbour(int x, int y) {
-		int count = 0;
-
+	private void solvePointAddToNeighbour(int x, int y) {
 		for (int i = x - 1; i < x + 2; i++) {
 
 			for (int j = y - 1; j < y + 2; j++) {
@@ -101,8 +112,6 @@ public class TreasureMapCountTreasure extends Map {
 				}
 			}
 		}
-
-		return count;
 	}
 
 	/**
@@ -121,6 +130,12 @@ public class TreasureMapCountTreasure extends Map {
 	 */
 	public void setThreshold(double threshold) {
 		this.threshold = threshold;
+	}
+
+	@Override
+	protected int solvePoint(int x, int y) {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 
 }
