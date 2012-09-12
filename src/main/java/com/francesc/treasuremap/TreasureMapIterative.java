@@ -1,6 +1,6 @@
 package com.francesc.treasuremap;
 
-public class TreasureMap extends Map {
+public class TreasureMapIterative extends Map {
 	
 	/**
 	 * Threshold to help to autogenerate map.
@@ -13,7 +13,7 @@ public class TreasureMap extends Map {
 	 * @param j map height to generate
 	 * @param threshold to
 	 */
-	public TreasureMap(int i, int j, double threshold){
+	public TreasureMapIterative(int i, int j, double threshold){
 		super(i,j);
 		this.threshold=threshold;		
 	}
@@ -22,7 +22,7 @@ public class TreasureMap extends Map {
 	 * Treasure map from outer param
 	 * @param map int [][] treasure map
 	 */
-	public TreasureMap(int [][] map){
+	public TreasureMapIterative(int [][] map){
 		super(map);
 	}
 	
