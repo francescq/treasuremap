@@ -41,13 +41,11 @@ public class TreasureMapRecursive extends Map {
 
 		if (depth == 0) {
 			// At the end of depth it evaluates the point
-			try {
+			if (isInGrid(x, y)) {
 				p = (Point) getMap().get(x).get(y);
 				if (p.isTreasurePoint()) {
 					count = 1;
 				}
-			} catch (Exception e) {
-
 			}
 
 		} else {

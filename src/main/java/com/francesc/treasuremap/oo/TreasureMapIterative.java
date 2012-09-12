@@ -59,15 +59,13 @@ public class TreasureMapIterative extends Map {
 		for (int i = x - 1; i < x + 2; i++) {
 
 			for (int j = y - 1; j < y + 2; j++) {
-				try {
+				if (isInGrid(i, j)) {
 					//
 					p = (Point) getMap().get(i).get(j);
 					// evaluate the point
 					if (p.isTreasurePoint()) {
 						count++;
 					}
-				} catch (ArrayIndexOutOfBoundsException e) {
-
 				}
 			}
 		}

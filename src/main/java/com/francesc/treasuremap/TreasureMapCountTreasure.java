@@ -1,6 +1,6 @@
 package com.francesc.treasuremap;
 
-public class TreasureMapIterative extends Map {
+public class TreasureMapCountTreasure extends Map {
 
 	/**
 	 * Threshold to help to autogenerate map.
@@ -17,7 +17,7 @@ public class TreasureMapIterative extends Map {
 	 * @param threshold
 	 *            to
 	 */
-	public TreasureMapIterative(int i, int j, double threshold) {
+	public TreasureMapCountTreasure(int i, int j, double threshold) {
 		super(i, j);
 		this.threshold = threshold;
 	}
@@ -28,7 +28,7 @@ public class TreasureMapIterative extends Map {
 	 * @param map
 	 *            int [][] treasure map
 	 */
-	public TreasureMapIterative(int[][] map) {
+	public TreasureMapCountTreasure(int[][] map) {
 		super(map);
 	}
 
@@ -53,20 +53,43 @@ public class TreasureMapIterative extends Map {
 	 */
 	@Override
 	public int solvePoint(int x, int y) {
-		return solvePointIterative(x, y);
+		return solvePointAddToNeighbour(x, y);
+	}
+
+	/**
+	 * If a treasure is found, add +1 to neigbours
+	 * 
+	 * @param x
+	 *            width point to add +1
+	 * @param y
+	 *            height point to add +1
+	 */
+	private void addTreasureToNeighbours(int x, int y) {
+
+		for (int i = x - 1; i < x + 2; i++) {
+
+			for (int j = y - 1; j < y + 2; j++) {
+
+				if (isInGrid(i, j)) {
+					getMap()[i][j]++;
+				}
+			}
+		}
 	}
 
 	/**
 	 * Solves the problem using iterative approach. This approach is quicker
 	 * than recursive
 	 * 
+	 * @param map
+	 *            int [][] treasure map
 	 * @param x
 	 *            width to evaluate
 	 * @param y
 	 *            height to evaluate
 	 * @return int how many treasures are nearby?
 	 */
-	private int solvePointIterative(int x, int y) {
+	private int solvePointAddToNeighbour(int x, int y) {
 		int count = 0;
 
 		for (int i = x - 1; i < x + 2; i++) {
@@ -74,7 +97,7 @@ public class TreasureMapIterative extends Map {
 			for (int j = y - 1; j < y + 2; j++) {
 
 				if (isTreasurePoint(i, j)) {
-					count++;
+					addTreasureToNeighbours(i, j);
 				}
 			}
 		}

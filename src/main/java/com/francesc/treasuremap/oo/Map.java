@@ -98,6 +98,26 @@ public abstract class Map {
 	}
 
 	/**
+	 * Returns if the evaluated point is in map grid or not
+	 * 
+	 * @param i
+	 *            width position
+	 * @param j
+	 *            height position
+	 * @return boolean is the point inside the map grid?
+	 */
+	protected boolean isInGrid(int i, int j) {
+		boolean isInGrid = true;
+
+		if (i < 0 || j < 0 || i >= getMap().size()
+				|| j >= getMap().get(i).size()) {
+			isInGrid = false;
+		}
+
+		return isInGrid;
+	}
+
+	/**
 	 * TreasureMap getter
 	 * 
 	 * @return int [][] matrix

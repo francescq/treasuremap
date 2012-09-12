@@ -63,6 +63,25 @@ public abstract class Map {
 	}
 
 	/**
+	 * Returns if the evaluated point is in map grid or not
+	 * 
+	 * @param i
+	 *            width position
+	 * @param j
+	 *            height position
+	 * @return boolean is the point inside the map grid?
+	 */
+	protected boolean isInGrid(int i, int j) {
+		boolean isInGrid = true;
+
+		if (i < 0 || j < 0 || i >= getMap().length || j >= getMap()[i].length) {
+			isInGrid = false;
+		}
+
+		return isInGrid;
+	}
+
+	/**
 	 * TreasureMap getter
 	 * 
 	 * @return int [][] matrix
@@ -118,45 +137,47 @@ public abstract class Map {
 	 * integers 1,0 or chars 'X','-'. If the position is equal to 1 or 'X'
 	 * return true, else returns false.
 	 * 
-	 * @param map
-	 *            int [][] that contains the treasure map
 	 * @param x
 	 *            witdh to evaluate
 	 * @param y
 	 *            height to evaluate
 	 * @return boolean Is this point a treasure point?
 	 */
-	protected boolean isTreasurePoint(int[][] map, int x, int y) {
+	protected boolean isTreasurePoint(int x, int y) {
 		boolean solver = false;
-		try {
-			if ((map[x][y] == 1) || (map[x][y] == 'X')) {
+
+		if (isInGrid(x, y))
+			if ((getMap()[x][y] == 1) || (getMap()[x][y] == 'X')) {
 				solver = true;
 			}
-		} catch (IndexOutOfBoundsException e) {
-		}
+
 		return solver;
 	}
 
 	/**
-	 * solvePoin forces the subclass to implement the approach to solve te point.
-	 * @param map int [][] treausre map
-	 * @param x width to evaluate
-	 * @param y height to evaluate
+	 * solvePoin forces the subclass to implement the approach to solve te
+	 * point.
+	 * 
+	 * @param x
+	 *            width to evaluate
+	 * @param y
+	 *            height to evaluate
 	 * @return int how many treasures are nearby?
 	 */
-	protected abstract int solvePoint(int[][] map, int x, int y);
+	protected abstract int solvePoint(int x, int y);
 
 	/**
-	 * Solve goes through the treasure map matrix. For each point evaluated calls solvePoint.
+	 * Solve goes through the treasure map matrix. For each point evaluated
+	 * calls solvePoint.
 	 */
 	public void solve() {
 		long time = System.currentTimeMillis();
 
-		for (int i = 0; i < map.length; i++) {
+		for (int i = 0; i < getMap().length; i++) {
 
-			for (int j = 0; j < map[i].length; j++) {
+			for (int j = 0; j < getMap()[i].length; j++) {
 
-				result[i][j] = solvePoint(getMap(), i, j);
+				result[i][j] = solvePoint(i, j);
 
 			}
 
