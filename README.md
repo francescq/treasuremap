@@ -5,24 +5,21 @@ Hello,
 
 My name is Francesc Qui–ones.
 
-The basic structure of this problem is an abstract class with Map methods.
-Depending on the solve approach, the subclass is forced to implement the solve approach.
+The basic structure of this problem is an Abstract class with TreasureGrid methods.
+The subclasses are forced to implement the solve approach. Each solve approach depends on the strategy
 
-Each maven test executes its version primitive or OO.
+I tried 5 approaches:
+ObjectOriented iterative: Iterate each grid point. Look for treasures at neighbours points iterating them.
+ObjectOriented recursive: Iterate each grid point. Look for treasures at neighbours points recursively.
+PrimitiveType iterate: Iterate each grid point. Look for treasures at neighbours points iterating them.
+PrimitiveType recursive: Iterate each grid point. Look for treasures at neighbours points recursively.
+PrimitiveType countTreasures: Iterate each grid point and look for treasures. Then, add +1 to neighbours treasuresCout.
 
-I developed 4 approaches of the treasure map question:
+ObjectOriented and PrimitiveType has their own jUnit Test. 
 
-Coding approach:
-With primitive types / OO oriented
+One test on each has a grid 1000x1000 in order to test the code performance.
 
-Solving approach:
-Iterative / Recursive:
-
-The quickest approach is the iterative with primitive types one.
-This is 10 times faster than OO approach
-
-The most code readable version is OO oriented one.
-
-
+The ObjectOriented approach is near to 20 times slower than PrimitiveTypes. 
+The iterating approach is quicker than others.
 
 treasuremap
