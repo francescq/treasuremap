@@ -9,6 +9,16 @@ import com.francesc.treasuremap.oo.Point;
 import com.francesc.treasuremap.oo.TreasureMapIterative;
 import com.francesc.treasuremap.oo.TreasureMapRecursive;
 
+/**
+ * 
+ * @author Francesc Qui–ones Gispert
+ * @date 12/09/2012
+ * 
+ *       I developed the OO approach to demonstrate my OO knowledge. I don't
+ *       know my mistake but this approach is much slower, 10 times, than the
+ *       basic type approach
+ * 
+ */
 public class TreasureMapOOTest {
 
 	private int[][] mapTest = { { 'X', '-', '-' }, { '-', '-', '-' },
