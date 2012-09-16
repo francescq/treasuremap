@@ -1,9 +1,6 @@
 treasuremap
 ===========
 
-treasuremap
-===========
-
 Hello, 
 
 My name is Francesc Quiñones.
