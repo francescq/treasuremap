@@ -4,6 +4,7 @@ treasuremap
 Hello, 
 
 My name is Francesc Quiñones.
+
 @version 2
 Fixed the problem with countTreasures method. Because a bug, it was not efficient. Now it is efficient.
 -The iterate method for each point evaluates ALL the neighbours.
