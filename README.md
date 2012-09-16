@@ -1,9 +1,12 @@
 treasuremap
 ===========
 
+treasuremap
+===========
+
 Hello, 
 
-My name is Francesc Quiñones.
+My name is Francesc Qui√±ones.
 @version 2
 Fixed the problem with countTreasures method. Because a bug, it was not efficient. Now it is efficient.
 -The iterate method for each point evaluates ALL the neighbours.
@@ -34,5 +37,7 @@ One test on each has a grid 1000x1000 in order to test the code performance.
 
 The ObjectOriented approach is near to 20 times slower than PrimitiveTypes. 
 The iterating approach is quicker than others.
+
+treasuremap
 
 treasuremap
