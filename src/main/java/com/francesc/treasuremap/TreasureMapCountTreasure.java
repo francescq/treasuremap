@@ -49,27 +49,6 @@ public class TreasureMapCountTreasure extends TreasureGrid {
 	}
 
 	/**
-	 * redirects to solvePointIterative
-	 */
-	@Override
-	public void solve() {
-		long time = System.currentTimeMillis();
-
-		for (int i = 0; i < getMap().length; i++) {
-
-			for (int j = 0; j < getMap()[i].length; j++) {
-
-				solvePointAddToNeighbour(i, j);
-
-			}
-
-		}
-
-		System.out.println("Solved in: " + (System.currentTimeMillis() - time)
-				+ " milis");
-	}
-
-	/**
 	 * If a treasure is found, add +1 to neigbours
 	 * 
 	 * @param x
@@ -84,7 +63,7 @@ public class TreasureMapCountTreasure extends TreasureGrid {
 			for (int j = y - 1; j < y + 2; j++) {
 
 				if (isInGrid(i, j)) {
-					getMap()[i][j]++;
+					addTreasureToPoint(i, j);
 				}
 			}
 		}
@@ -102,15 +81,9 @@ public class TreasureMapCountTreasure extends TreasureGrid {
 	 *            height to evaluate
 	 * @return int how many treasures are nearby?
 	 */
-	private void solvePointAddToNeighbour(int x, int y) {
-		for (int i = x - 1; i < x + 2; i++) {
-
-			for (int j = y - 1; j < y + 2; j++) {
-
-				if (isTreasurePoint(i, j)) {
-					addTreasureToNeighbours(i, j);
-				}
-			}
+	public void solvePoint(int x, int y) {
+		if (isTreasurePoint(x, y)) {
+			addTreasureToNeighbours(x, y);
 		}
 	}
 
@@ -130,12 +103,6 @@ public class TreasureMapCountTreasure extends TreasureGrid {
 	 */
 	public void setThreshold(double threshold) {
 		this.threshold = threshold;
-	}
-
-	@Override
-	protected int solvePoint(int x, int y) {
-		// TODO Auto-generated method stub
-		return 0;
 	}
 
 }

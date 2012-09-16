@@ -17,8 +17,44 @@ public class TreasureMapTest {
 	 * Test if TreasureMap solves mapTest as mapResult expected
 	 */
 	@Test
-	public void testTreasureMapSolve() {
-		TreasureMapIterative t = new TreasureMapIterative(mapTest);
+	public void testTreasureMapIterativeSolve() {
+		TreasureGrid t = new TreasureMapIterative(mapTest);
+		// t.setMap(mapTest);
+		t.solve();
+
+		int[][] result = t.getResult();
+
+		for (int i = 0; i < result.length; i++) {
+			for (int j = 0; j < result[i].length; j++) {
+				assertTrue(mapResult[i][j] == result[i][j]);
+			}
+		}
+	}
+
+	/**
+	 * Test if TreasureMap solves mapTest as mapResult expected
+	 */
+	@Test
+	public void testTreasureMapRecursiveSolve() {
+		TreasureGrid t = new TreasureMapRecursive(mapTest);
+		// t.setMap(mapTest);
+		t.solve();
+
+		int[][] result = t.getResult();
+
+		for (int i = 0; i < result.length; i++) {
+			for (int j = 0; j < result[i].length; j++) {
+				assertTrue(mapResult[i][j] == result[i][j]);
+			}
+		}
+	}
+
+	/**
+	 * Test if TreasureMap solves mapTest as mapResult expected
+	 */
+	@Test
+	public void testTreasureMapCountTreasuresSolve() {
+		TreasureGrid t = new TreasureMapCountTreasure(mapTest);
 		// t.setMap(mapTest);
 		t.solve();
 

@@ -85,8 +85,8 @@ public class TreasureMapRecursive extends TreasureGrid {
 	 * redirects to solvePointRecursive
 	 */
 	@Override
-	protected int solvePoint(int x, int y) {
-		return solvePointRecursive(x, y, 1);
+	protected void solvePoint(int x, int y) {
+		getResult()[x][y] = solvePointRecursive(x, y, 1);
 	}
 
 }

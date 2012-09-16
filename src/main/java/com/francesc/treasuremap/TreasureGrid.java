@@ -105,6 +105,16 @@ public abstract class TreasureGrid {
 	}
 
 	/**
+	 * ResultMAp setter
+	 * 
+	 * @param map
+	 *            int [][] matrix
+	 */
+	public void setResult(int[][] result) {
+		this.result = result;
+	}
+
+	/**
 	 * Forces to subclass to try the autoPopulate methodology to a single point
 	 * 
 	 * @return int according to 1 or 'X' if there is a treasure, 0,'-' if there
@@ -150,6 +160,18 @@ public abstract class TreasureGrid {
 	}
 
 	/**
+	 * Increments +1 to result matrix
+	 * 
+	 * @param x
+	 *            width point
+	 * @param y
+	 *            height point
+	 */
+	protected void addTreasureToPoint(int x, int y) {
+		result[x][y] = result[x][y] + 1;
+	}
+
+	/**
 	 * solvePoin forces the subclass to implement the approach to solve te
 	 * point.
 	 * 
@@ -159,7 +181,7 @@ public abstract class TreasureGrid {
 	 *            height to evaluate
 	 * @return int how many treasures are nearby?
 	 */
-	protected abstract int solvePoint(int x, int y);
+	protected abstract void solvePoint(int x, int y);
 
 	/**
 	 * Solve goes through the treasure map matrix. For each point evaluated
@@ -172,7 +194,7 @@ public abstract class TreasureGrid {
 
 			for (int j = 0; j < getMap()[i].length; j++) {
 
-				result[i][j] = solvePoint(i, j);
+				solvePoint(i, j);
 
 			}
 

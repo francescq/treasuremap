@@ -41,11 +41,10 @@ public class TreasureMapRecursive extends TreasureGrid {
 
 		if (depth == 0) {
 			// At the end of depth it evaluates the point
-			if (isInGrid(x, y)) {
-				p = (Point) getMap().get(x).get(y);
-				if (p.isTreasurePoint()) {
-					count = 1;
-				}
+			if (isInGrid(x, y) && isTreasurePoint(x, y)) {
+
+				count = 1;
+
 			}
 
 		} else {
@@ -78,7 +77,6 @@ public class TreasureMapRecursive extends TreasureGrid {
 	@Override
 	protected void solvePoint(int i, int j) {
 		int numTreasures = solvePointRecursive(i, j, 1);
-		Point p = ((Point) getMap().get(i).get(j));
-		p.setNumTreasures(numTreasures);
+		addTreasuresToPoint(i, j, numTreasures);
 	}
 }

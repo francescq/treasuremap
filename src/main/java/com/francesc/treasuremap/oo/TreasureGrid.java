@@ -72,8 +72,9 @@ public abstract class TreasureGrid {
 		int y = 0;
 
 		if (map == null) {
-			throw new NullPointerException(TreasureGrid.class
-					+ " TreasureGrid(int [][] map): map argument must not be null");
+			throw new NullPointerException(
+					TreasureGrid.class
+							+ " TreasureGrid(int [][] map): map argument must not be null");
 		}
 
 		// if map size is [0,0]
@@ -91,7 +92,7 @@ public abstract class TreasureGrid {
 			this.map.add(row);
 
 			for (int j = 0; j < y; j++) {
-				point = new Point(map[i][j], -1);
+				point = new Point(map[i][j], 0);
 				row.add(point);
 			}
 		}
@@ -145,6 +146,23 @@ public abstract class TreasureGrid {
 				p.populatePoint(getThreshold());
 			}
 		}
+	}
+
+	protected boolean isTreasurePoint(int x, int y) {
+		Point p = (Point) getMap().get(x).get(y);
+		return p.isTreasurePoint();
+	}
+
+	public void addTreasuresToPoint(int x, int y, int numTreasures) {
+		Point p = (Point) getMap().get(x).get(y);
+		p.setNumTreasures(numTreasures);
+	}
+
+	public void addTreasureToPoint(int x, int y) {
+		Point p = (Point) getMap().get(x).get(y);
+		// evaluate the point
+		p.addTreasureToPoint();
+
 	}
 
 	/**

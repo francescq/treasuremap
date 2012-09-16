@@ -25,6 +25,14 @@ public class TreasureMapApp {
 		treasureMap.solve();
 		System.out.println(treasureMap);
 
+		treasureMap = new TreasureMapRecursive(mapTest);
+		treasureMap.solve();
+		System.out.println(treasureMap);
+
+		treasureMap = new TreasureMapCountTreasure(mapTest);
+		treasureMap.solve();
+		System.out.println(treasureMap);
+
 	}
 
 }

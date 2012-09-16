@@ -4,7 +4,20 @@ treasuremap
 Hello, 
 
 My name is Francesc Qui–ones.
+@version 2
+Fixed the problem with countTreasures method. Because a bug, it was not efficient. Now it is efficient.
+-The iterate method for each point evaluates ALL the neighbours.
+-The count treasures method add a treasure point to neighbours ONLY if the evaluated point is a treasure.
 
+The difference between iterate, recursive and treasure count is: What I do if the point to evaluate is a treasure?
+
+As allways, the most restrictive conditions goes first. This option increases the code performance.
+
+As the threshold is more restrictive, the count treasure method will go faster.
+
+Added treasure count to OO increasing a lot the performance.
+
+@version 1
 The basic structure of this problem is an Abstract class with TreasureGrid methods.
 The subclasses are forced to implement the solve approach. Each solve approach depends on the strategy
 

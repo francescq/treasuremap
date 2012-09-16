@@ -31,7 +31,8 @@ public class Point {
 	 * empty constructor
 	 */
 	public Point() {
-
+		this.point = 0;
+		this.numTreasures = 0;
 	}
 
 	/**
@@ -50,6 +51,13 @@ public class Point {
 		}
 
 		return solver;
+	}
+
+	/**
+	 * Add a treasure to point count
+	 */
+	public void addTreasureToPoint() {
+		this.numTreasures++;
 	}
 
 	/**
@@ -73,7 +81,7 @@ public class Point {
 	 * To string, this point to string
 	 */
 	public String toString() {
-		return point + "";
+		return "[" + point + ", " + numTreasures + "]";
 	}
 
 	/**

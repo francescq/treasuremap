@@ -5,7 +5,8 @@ package com.francesc.treasuremap.oo;
  * @author Francesc Qui–ones Gispert
  * @date 12/09/2012
  * 
- *       This class implements the Treasure's TreasureGrid solver in interative approach.
+ *       This class implements the Treasure's TreasureGrid solver in interative
+ *       approach.
  * 
  */
 public class TreasureMapIterative extends TreasureGrid {
@@ -52,27 +53,15 @@ public class TreasureMapIterative extends TreasureGrid {
 	 *            height position to evaluate
 	 */
 	private void solvePointIterative(int x, int y) {
-		int count = 0;
-		Point p = null;
-
 		// go through nearby points
 		for (int i = x - 1; i < x + 2; i++) {
 
 			for (int j = y - 1; j < y + 2; j++) {
-				if (isInGrid(i, j)) {
-					//
-					p = (Point) getMap().get(i).get(j);
-					// evaluate the point
-					if (p.isTreasurePoint()) {
-						count++;
-					}
+				if (isInGrid(i, j) && isTreasurePoint(i, j)) {
+					addTreasureToPoint(x, y);
 				}
 			}
 		}
-
-		p = (Point) getMap().get(x).get(y);
-		// save the num of threasures to evaluated point
-		p.setNumTreasures(count);
 	}
 
 }

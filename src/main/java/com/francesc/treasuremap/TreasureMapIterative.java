@@ -52,8 +52,8 @@ public class TreasureMapIterative extends TreasureGrid {
 	 * redirects to solvePointIterative
 	 */
 	@Override
-	public int solvePoint(int x, int y) {
-		return solvePointIterative(x, y);
+	public void solvePoint(int x, int y) {
+		solvePointIterative(x, y);
 	}
 
 	/**
@@ -66,20 +66,16 @@ public class TreasureMapIterative extends TreasureGrid {
 	 *            height to evaluate
 	 * @return int how many treasures are nearby?
 	 */
-	private int solvePointIterative(int x, int y) {
-		int count = 0;
-
+	private void solvePointIterative(int x, int y) {
 		for (int i = x - 1; i < x + 2; i++) {
 
 			for (int j = y - 1; j < y + 2; j++) {
 
 				if (isTreasurePoint(i, j)) {
-					count++;
+					addTreasureToPoint(x, y);
 				}
 			}
 		}
-
-		return count;
 	}
 
 	/**

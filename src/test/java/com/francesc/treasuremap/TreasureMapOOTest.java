@@ -7,6 +7,7 @@ import org.junit.Test;
 
 import com.francesc.treasuremap.oo.Point;
 import com.francesc.treasuremap.oo.TreasureGrid;
+import com.francesc.treasuremap.oo.TreasureMapCountTreasures;
 import com.francesc.treasuremap.oo.TreasureMapIterative;
 import com.francesc.treasuremap.oo.TreasureMapRecursive;
 
@@ -32,8 +33,42 @@ public class TreasureMapOOTest {
 	 * Test if TreasureMap solves mapTest as mapResult expected
 	 */
 	@Test
-	public void testTreasureMapSolve() {
-		TreasureMapIterative t = new TreasureMapIterative(mapTest);
+	public void testTreasureMapIterativeSolve() {
+		TreasureGrid t = new TreasureMapIterative(mapTest);
+		// t.setMap(mapTest);
+		t.solve();
+
+		for (int i = 0; i < mapResult.length; i++) {
+			for (int j = 0; j < mapResult[i].length; j++) {
+				Point p = (Point) t.getMap().get(i).get(j);
+				assertTrue(mapResult[i][j] == p.getNumTreasures());
+			}
+		}
+	}
+
+	/**
+	 * Test if TreasureMap solves mapTest as mapResult expected
+	 */
+	@Test
+	public void testTreasureMapRecursiveSolve() {
+		TreasureGrid t = new TreasureMapRecursive(mapTest);
+		// t.setMap(mapTest);
+		t.solve();
+
+		for (int i = 0; i < mapResult.length; i++) {
+			for (int j = 0; j < mapResult[i].length; j++) {
+				Point p = (Point) t.getMap().get(i).get(j);
+				assertTrue(mapResult[i][j] == p.getNumTreasures());
+			}
+		}
+	}
+
+	/**
+	 * Test if TreasureMap solves mapTest as mapResult expected
+	 */
+	@Test
+	public void testTreasureMapCountTreasuresSolve() {
+		TreasureGrid t = new TreasureMapCountTreasures(mapTest);
 		// t.setMap(mapTest);
 		t.solve();
 
@@ -118,6 +153,11 @@ public class TreasureMapOOTest {
 
 		// Stress with recursive approach
 		treasureMap = new TreasureMapRecursive(1000, 1000, 0.9);
+		treasureMap.populate();
+		treasureMap.solve();
+
+		// Stress with recursive approach
+		treasureMap = new TreasureMapCountTreasures(1000, 1000, 0.9);
 		treasureMap.populate();
 		treasureMap.solve();
 	}
